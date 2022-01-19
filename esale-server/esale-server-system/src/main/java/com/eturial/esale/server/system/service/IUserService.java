@@ -16,7 +16,8 @@ public interface IUserService {
      * @return IPage
      */
     IPage<SystemUser> findUserDetail(SystemUser user, QueryRequest request);
-    List<SystemUser> findUserDetail(String username);
+    List<SystemUser> findUserDetail();
+    SystemUser findUser(String username);
     /**
      * 新增用户
      *
@@ -36,5 +37,5 @@ public interface IUserService {
      *
      * @param userIds 用户 id数组
      */
-    void deleteUsers(String[] userIds);
+    void deleteUsers(String username);
 }

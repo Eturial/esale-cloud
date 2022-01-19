@@ -3,6 +3,31 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.eturial.esale.server.system.mapper.UserMapper">
+    <insert id="newUser">
+        insert into users (user_id, username, password, status,
+                           create_time, SSEX, avatar)
+        values (#{user.userId}, #{user.username}, #{user.password},
+                #{user.status}, #{user.createTime},
+                #{user.sex}, #{user.avatar})
+    </insert>
+    <update id="updateUser">
+        update users
+        set
+            real_name = #{user.realName},
+            id_num = #{user.idNum},
+            password = #{user.password},
+            user_address = #{user.userAddress},
+            user_phone = #{user.userPhone},
+            SSEX = #{user.sex},
+            avatar = #{user.avatar},
+            description = #{user.description}
+        where username = #{user.username}
+    </update>
+
+    <delete id="deleteUser">
+        delete from users
+        where username = #{username}
+    </delete>
     <select id="findUserDetail" parameterType="String" resultType="com.eturial.esale.common.entity.system.SystemUser">
         SELECT
             u.user_id userId,
@@ -25,12 +50,46 @@
             users u
         LEFT JOIN user_role ur ON (u.user_id = ur.user_id)
         LEFT JOIN role r ON r.role_id = ur.role_id
-        WHERE  u.username = #{username}
         group by
                  u.username,u.user_id,u.real_name,u.id_num,u.user_email,
                  u.user_phone,u.user_address,u.password,
                  u.create_time,u.ssex,u.status,
                  u.update_time,u.description,u.avatar
+    </select>
+    <select id="selectIdByUsername" resultType="java.lang.String">
+        SELECT
+            user_id
+        FROM users
+        where username = #{username}
+    </select>
+    <select id="findUser" resultType="com.eturial.esale.common.entity.system.SystemUser">
+        SELECT
+            u.user_id userId,
+            u.real_name realName,
+            u.id_num idNum,
+            u.username username,
+            u.user_email userEmail,
+            u.user_phone userPhone,
+            u.user_address userAddress,
+            u.password password,
+            u.create_time createTime,
+            u.ssex sex,
+            u.update_time lastLoginTime,
+            u.description description,
+            u.avatar avatar,
+            u.status status,
+            GROUP_CONCAT(r.role_id) roleId,
+            GROUP_CONCAT(r.role_name) roleName
+        FROM
+            users u
+                LEFT JOIN user_role ur ON (u.user_id = ur.user_id)
+                LEFT JOIN role r ON r.role_id = ur.role_id
+        WHERE  u.username = #{username}
+        group by
+            u.username,u.user_id,u.real_name,u.id_num,u.user_email,
+            u.user_phone,u.user_address,u.password,
+            u.create_time,u.ssex,u.status,
+            u.update_time,u.description,u.avatar
     </select>
 
 </mapper>

@@ -21,5 +21,14 @@ public interface UserMapper {
 //     * @return Ipage
 //     */
     //IPage<SystemUser> findUserDetailPage(Page page, @Param("user") SystemUser user);
-    List<SystemUser> findUserDetail (@Param("username") String username);
+    List<SystemUser> findUserDetail ();
+
+    void newUser(@Param("user") SystemUser user);
+    String selectIdByUsername(@Param("username") String username);
+
+    SystemUser findUser(@Param("username") String username);
+
+    void updateUser(@Param("user") SystemUser user);
+
+    void deleteUser(@Param("username") String username);
 }

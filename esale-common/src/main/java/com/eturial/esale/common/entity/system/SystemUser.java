@@ -57,9 +57,9 @@ public class SystemUser implements Serializable {
     /**
      * 身份证号
      */
-//    @TableField("ID_NUM")
+    @TableField("ID_NUM")
 //    @Cid
-//    private String idNum;
+    private String idNum;
 
     /**
      * 姓名

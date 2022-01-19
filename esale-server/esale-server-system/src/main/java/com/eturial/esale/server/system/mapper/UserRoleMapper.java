@@ -4,6 +4,7 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.eturial.esale.common.entity.system.UserRole;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Repository;
 
 @Mapper
@@ -24,4 +25,6 @@ public interface UserRoleMapper {
      * @return boolean
      */
     Boolean deleteByRoleId(@Param("roleId") Long roleId);
+
+    void newUserRole (@Param("userRole") UserRole userRole);
 }
