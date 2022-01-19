@@ -43,7 +43,7 @@ public class SecurityController {
     @GetMapping("/user")
 //    public UserDetails currentUser(@RequestParam("username") String username) {
     public UserDetails currentUser() {
-            System.out.println("2qhfefug ");
+//            System.out.println("2qhfefug ");
 //        return userDetailService.loadUserByUsername(username);
         return userDetailService.loadUserByUsername("eturial");
     }

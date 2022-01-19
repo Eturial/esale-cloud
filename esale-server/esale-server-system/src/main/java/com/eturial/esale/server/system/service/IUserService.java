@@ -5,7 +5,9 @@ import com.baomidou.mybatisplus.extension.service.IService;
 import com.eturial.esale.common.entity.QueryRequest;
 import com.eturial.esale.common.entity.system.SystemUser;
 
-public interface IUserService extends IService<SystemUser> {
+import java.util.List;
+
+public interface IUserService {
     /**
      * 查找用户详细信息
      *
@@ -14,7 +16,7 @@ public interface IUserService extends IService<SystemUser> {
      * @return IPage
      */
     IPage<SystemUser> findUserDetail(SystemUser user, QueryRequest request);
-
+    List<SystemUser> findUserDetail(String username);
     /**
      * 新增用户
      *

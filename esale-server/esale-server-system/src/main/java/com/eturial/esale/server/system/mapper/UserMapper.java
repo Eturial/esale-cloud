@@ -6,14 +6,20 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.eturial.esale.common.entity.system.SystemUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
-public interface UserMapper extends BaseMapper<SystemUser> {
-    /**
-     * 查找用户详细信息
-     *
-     * @param page 分页对象
-     * @param user 用户对象，用于传递查询条件
-     * @return Ipage
-     */
-    IPage<SystemUser> findUserDetailPage(Page page, @Param("user") SystemUser user);
+import java.util.List;
+
+@Mapper
+@Repository
+public interface UserMapper {
+//    /**
+//     * 查找用户详细信息
+//     *
+//     * @param page 分页对象
+//     * @param user 用户对象，用于传递查询条件
+//     * @return Ipage
+//     */
+    //IPage<SystemUser> findUserDetailPage(Page page, @Param("user") SystemUser user);
+    List<SystemUser> findUserDetail (@Param("username") String username);
 }

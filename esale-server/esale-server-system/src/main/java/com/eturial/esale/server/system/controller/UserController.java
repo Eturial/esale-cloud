@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -28,9 +29,10 @@ public class UserController {
 
     @GetMapping("/view")
     @PreAuthorize("hasAnyAuthority('user:view')")
-    public Response userList(QueryRequest queryRequest, SystemUser user) {
-        Map<String, Object> dataTable = EsaleUtil.getDataTable(userService.findUserDetail(user, queryRequest));
-        return new Response().data(dataTable);
+    public List<SystemUser> userList(@RequestParam("username") String username) {
+//        Map<String, Object> dataTable = EsaleUtil.getDataTable(userService.findUserDetail(user));
+        return userService.findUserDetail(username);
+//        return new Response().data(dataTable);
     }
 
     @PostMapping

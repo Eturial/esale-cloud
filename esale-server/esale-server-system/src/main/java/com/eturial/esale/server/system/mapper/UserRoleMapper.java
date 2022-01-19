@@ -4,8 +4,11 @@ import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.eturial.esale.common.entity.system.UserRole;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
+import org.springframework.stereotype.Repository;
 
-public interface UserRoleMapper extends BaseMapper<UserRole> {
+@Mapper
+@Repository
+public interface UserRoleMapper {
     /**
      * 根据用户Id删除该用户的角色关系
      *

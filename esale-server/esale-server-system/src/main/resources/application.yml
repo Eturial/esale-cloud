@@ -39,13 +39,17 @@ security:
       id: ${spring.application.name}
       user-info-uri: http://localhost:8301/auth/user
 
-mybatis-plus:
-  type-aliases-package: com.eturial.esale.common.entity.system
-  mapper-locations: classpath:mapper/*/*.xml
-  configuration:
-    jdbc-type-for-null: null
-  global-config:
-    banner: false
+#mybatis-plus:
+#  type-aliases-package: com.eturial.esale.common.entity.system
+#  mapper-locations: classpath:mapper/*/*.xml
+#  configuration:
+#    jdbc-type-for-null: null
+#  global-config:
+#    banner: false
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  config-location: classpath:mybatis-config
 
 #logging:
 #  level:
