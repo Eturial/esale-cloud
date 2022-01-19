@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eturial.esale.auth.mapper.UserMapper">
+    <select id="findByName" parameterType="string" resultType="systemUser">
+        SELECT
+            u.user_id userId,
+            u.real_name realName,
+            u.id_num idNum,
+            u.username username,
+            u.user_email userEmail,
+            u.user_phone userPhone,
+            u.user_address userAddress,
+            u.password password,
+            u.create_time createTime,
+            u.ssex sex,
+            u.update_time lastLoginTime,
+            u.description description,
+            u.avatar avatar,
+            u.status status,
+            GROUP_CONCAT(r.role_id) roleId,
+            GROUP_CONCAT(r.role_name) roleName
+        FROM
+            users u
+                LEFT JOIN user_role ur ON (u.user_id = ur.user_id)
+                LEFT JOIN role r ON r.role_id = ur.role_id
+        WHERE  u.username = #{username}
+        group by u.username,u.user_id,u.real_name,u.id_num,u.user_email,u.user_phone,u.user_address,u.password,
+                u.create_time,u.ssex,u.status,
+                u.update_time,u.description,u.avatar
+    </select>
+</mapper>

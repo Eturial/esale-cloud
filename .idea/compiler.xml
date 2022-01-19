@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="esale-register" />
+        <module name="esale-server-test" />
+        <module name="esale-auth" />
+        <module name="esale-gateway" />
+        <module name="esale-server-system" />
+        <module name="esale-common" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="esale-auth" target="1.8" />
+      <module name="esale-cloud" target="1.8" />
+      <module name="esale-common" target="1.8" />
+      <module name="esale-gateway" target="1.8" />
+      <module name="esale-register" target="1.8" />
+      <module name="esale-server" target="1.8" />
+      <module name="esale-server-system" target="1.8" />
+      <module name="esale-server-test" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="esale-auth" options="-parameters" />
+      <module name="esale-common" options="-parameters" />
+      <module name="esale-gateway" options="-parameters" />
+      <module name="esale-register" options="-parameters" />
+      <module name="esale-server" options="-parameters" />
+      <module name="esale-server-system" options="-parameters" />
+      <module name="esale-server-test" options="-parameters" />
+    </option>
+  </component>
+</project>

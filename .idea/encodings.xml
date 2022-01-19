@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/esale-auth/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/esale-cloud/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/esale-cloud/src/main/resources" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/esale-common/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/esale-gateway/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/esale-register/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/esale-server/esale-server-system/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/esale-server/esale-server-system/src/main/resources/application.yml" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/esale-server/esale-server-test/src/main/java" charset="UTF-8" />
+  </component>
+</project>

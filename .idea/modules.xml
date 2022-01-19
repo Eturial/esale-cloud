@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/EasySale.iml" filepath="$PROJECT_DIR$/.idea/EasySale.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esale-auth/esale-auth.iml" filepath="$PROJECT_DIR$/esale-auth/esale-auth.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esale-cloud/esale-cloud.iml" filepath="$PROJECT_DIR$/esale-cloud/esale-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esale-common/esale-common.iml" filepath="$PROJECT_DIR$/esale-common/esale-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esale-gateway/esale-gateway.iml" filepath="$PROJECT_DIR$/esale-gateway/esale-gateway.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esale-register/esale-register.iml" filepath="$PROJECT_DIR$/esale-register/esale-register.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esale-server/esale-server.iml" filepath="$PROJECT_DIR$/esale-server/esale-server.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esale-server/esale-server-system/esale-server-system.iml" filepath="$PROJECT_DIR$/esale-server/esale-server-system/esale-server-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/esale-server/esale-server-test/esale-server-test.iml" filepath="$PROJECT_DIR$/esale-server/esale-server-test/esale-server-test.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,7 @@
+# Project exclude paths
+/esale-auth/target/
+/esale-common/target/
+/esale-gateway/target/
+/esale-register/target/
+/esale-server/esale-server-system/target/
+/esale-server/esale-server-test/target/
