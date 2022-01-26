@@ -53,6 +53,6 @@ mybatis-plus:
   global-config:
     banner: false
 
-#logging:
-#  level:
-#    root: debug
+logging:
+  level:
+    root: debug

@@ -32,10 +32,6 @@ public interface IUserService {
      */
     void updateUser(SystemUser user);
 
-    /**
-     * 删除用户
-     *
-     * @param userIds 用户 id数组
-     */
+
     void deleteUsers(String username);
 }

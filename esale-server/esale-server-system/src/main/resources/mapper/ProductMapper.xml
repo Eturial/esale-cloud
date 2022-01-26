@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eturial.esale.server.system.mapper.ProductMapper">
+
+    <select id="getProductList" resultMap="Product">
+        SELECT
+            p.product_id,
+            product_name,
+            product_detail,
+            product_price,
+            product_stock,
+            product_status,
+            p.user_id,
+            ur.username,
+            p.create_time,
+            p.update_time,
+            ur.username username,
+            pic.pic_id,
+            pic.url
+        FROM
+            product p
+        LEFT JOIN users ur ON (p.user_id = ur.user_id)
+        LEFT JOIN picture pic ON (p.product_id = pic.product_id)
+        where product_status = 1
+    </select>
+
+    <resultMap type="com.eturial.esale.server.system.entity.Product" id="Product">
+        <id column="product_id" property="proId"/>
+        <result column="product_name" property="proName"/>
+        <result column="product_detail" property="detail"/>
+        <result column="product_name" property="proName"/>
+        <result column="product_price" property="price"/>
+        <result column="product_status" property="status"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+        <collection property="picture" ofType="com.eturial.esale.server.system.entity.ProductPicture">
+            <id column="pic_id" property="picId"/>
+            <result column="product_id" property="proId"/>
+            <result column="url" property="url"/>
+        </collection>
+        <collection property="user" ofType="com.eturial.esale.server.system.entity.SaleUser">
+            <id column="user_id" property="userId"/>
+            <result column="username" property="username"/>
+        </collection>
+    </resultMap>
+
+</mapper>

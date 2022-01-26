@@ -22,8 +22,8 @@ import java.util.Map;
 @Slf4j
 @Validated
 @RestController
-@RequestMapping("user1")
-
+@RequestMapping(value = "/user1")
+@CrossOrigin
 public class UserController {
     @Autowired
     private IUserService userService;

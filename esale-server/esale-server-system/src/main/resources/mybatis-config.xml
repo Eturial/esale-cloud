@@ -6,6 +6,8 @@
     <typeAliases>
         <typeAlias alias="user" type="com.eturial.esale.common.entity.system.SystemUser"/>
         <typeAlias alias="user_role" type="com.eturial.esale.common.entity.system.UserRole"/>
+        <typeAlias alias="product" type="com.eturial.esale.server.system.entity.Product"/>
+        <typeAlias alias="picture" type="com.eturial.esale.server.system.entity.ProductPicture"/>
     </typeAliases>
 
     <environments default="development">
@@ -22,5 +24,6 @@
     <mappers>
         <mapper resource="mapper/UserMapper.xml"/>
         <mapper resource="mapper/UserRoleMapper.xml"/>
+        <mapper resource="mapper/ProductMapper.xml"/>
     </mappers>
 </configuration>
