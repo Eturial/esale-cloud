@@ -1,5 +1,6 @@
 package com.eturial.esale.server.system.service.impl;
 
+
 import com.eturial.esale.server.system.entity.Product;
 import com.eturial.esale.server.system.mapper.ProductMapper;
 import com.eturial.esale.server.system.service.ProductService;
@@ -12,10 +13,11 @@ import java.util.List;
 public class ProductServiceImpl implements ProductService {
 
     @Autowired
-    ProductMapper productMapper;
+    private ProductMapper productMapper;
 
     @Override
     public List<Product> findProductList() {
         return productMapper.getProductList();
     }
+
 }

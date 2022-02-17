@@ -84,7 +84,7 @@ public class UserServiceImpl implements IUserService{
         if(user.getIdNum() != null)
             systemUser.setIdNum(user.getIdNum());
         if(user.getPassword() != null)
-            systemUser.setPassword(passwordEncoder.encode(systemUser.getPassword()));
+            systemUser.setPassword(user.getPassword());
         if(user.getUserAddress() != null)
             systemUser.setUserAddress(user.getUserAddress());
         if(user.getUserPhone() != null)

@@ -5,25 +5,55 @@
 <mapper namespace="com.eturial.esale.server.system.mapper.ProductMapper">
 
     <select id="getProductList" resultMap="Product">
-        SELECT
-            p.product_id,
-            product_name,
-            product_detail,
-            product_price,
-            product_stock,
-            product_status,
-            p.user_id,
-            ur.username,
-            p.create_time,
-            p.update_time,
-            ur.username username,
-            pic.pic_id,
-            pic.url
-        FROM
-            product p
+      SELECT
+        p.product_id,
+        product_name,
+        product_detail,
+        product_price,
+        product_stock,
+        product_status,
+        p.user_id,
+        ur.username,
+        p.create_time,
+        p.update_time,
+        pic.pic_id,
+        pic.url,
+        c.id,
+        c.name
+    FROM
+        product p
         LEFT JOIN users ur ON (p.user_id = ur.user_id)
         LEFT JOIN picture pic ON (p.product_id = pic.product_id)
-        where product_status = 1
+        LEFT JOIN class_product cp ON (cp.p_id = p.product_id )
+        LEFT JOIN class c ON (cp.class_id = c.id)
+        LEFT JOIN prepurchase pre ON (pre.product_id = p.product_id)
+    WHERE product_status = 1;
+    </select>
+
+    <select id="getProById" resultMap="Product">
+    SELECT
+        p.product_id,
+        product_name,
+        product_detail,
+        product_price,
+        product_stock,
+        product_status,
+        p.user_id,
+        ur.username,
+        p.create_time,
+        p.update_time,
+        pic.pic_id,
+        pic.url,
+        c.id,
+        c.name
+    FROM
+        product p
+        LEFT JOIN users ur ON (p.user_id = ur.user_id)
+        LEFT JOIN picture pic ON (p.product_id = pic.product_id)
+        LEFT JOIN class_product cp ON (cp.p_id = p.product_id )
+        LEFT JOIN class c ON (cp.class_id = c.id)
+        LEFT JOIN prepurchase pre ON (pre.product_id = p.product_id)
+    WHERE p.product_id=#{proId};
     </select>
 
     <resultMap type="com.eturial.esale.server.system.entity.Product" id="Product">
@@ -35,14 +65,14 @@
         <result column="product_status" property="status"/>
         <result column="create_time" property="createTime"/>
         <result column="update_time" property="updateTime"/>
+        <result column="id" property="productClass.classId"></result>
+        <result column="name" property="productClass.className"/>
+        <result column="user_id" property="user.userId"></result>
+        <result column="username" property="user.username"></result>
         <collection property="picture" ofType="com.eturial.esale.server.system.entity.ProductPicture">
             <id column="pic_id" property="picId"/>
             <result column="product_id" property="proId"/>
             <result column="url" property="url"/>
-        </collection>
-        <collection property="user" ofType="com.eturial.esale.server.system.entity.SaleUser">
-            <id column="user_id" property="userId"/>
-            <result column="username" property="username"/>
         </collection>
     </resultMap>
 
