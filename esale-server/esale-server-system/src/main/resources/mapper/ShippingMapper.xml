@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.eturial.esale.server.system.mapper.ShippingMapper">
+    <select id="selectShipping" resultMap="ShippingMap">
+        SELECT
+         shipping_id,
+         shipping_name,
+         shipping_phone,
+         shipping_district,
+         shipping_address
+        FROM shipping
+        WHERE user_id = #{userId};
+    </select>
+
+    <insert id="addShipping">
+        INSERT INTO shipping (shipping_id,user_id,shipping_name,
+        shipping_phone,shipping_district,shipping_address,create_time,update_time)
+        VALUE (#{shipping.shipId},#{shipping.userId},#{shipping.consignee},
+        #{shipping.conPhone},#{shipping.conDistrict},#{shipping.conAddr},
+        '2022-02-09','2022-02-09 17:20:23');
+    </insert>
+
+    <delete id="deleteShipping">
+        DELETE FROM shipping WHERE shipping_id = #{shipId};
+    </delete>
+
+    <update id="updateShipping">
+        UPDATE shipping
+        SET shipping_name = #{shipping.consignee} ,
+            shipping_phone = #{shipping.conPhone} ,
+            shipping_district = #{shipping.conDistrict} ,
+            shipping_address = #{shipping.conAddr},
+            update_time = '2022-02-09 19:24'
+        WHERE shipping_id = #{shipping.shipId};
+    </update>
+
+    <resultMap id="ShippingMap" type="com.eturial.esale.server.system.entity.Shipping">
+        <id column="shipping_id" property="shipId"></id>
+        <result column="user_id" property="userId"></result>
+        <result column="shipping_name" property="consignee"></result>
+        <result column="shipping_phone" property="conPhone"></result>
+        <result column="shipping_district" property="conDistrict"></result>
+        <result column="shipping_address" property="conAddr"></result>
+        <result column="create_time" property="createTime"></result>
+        <result column="update_time" property="updateTime"></result>
+    </resultMap>
+</mapper>
